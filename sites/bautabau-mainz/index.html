@@ -101,6 +101,22 @@
       align-items: center;
     }
 
+    .hero-visual {
+      margin-top: 18px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      max-width: 780px;
+    }
+    .hero-visual img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.05) contrast(1.05);
+    }
+
     .eyebrow {
       display:inline-flex; align-items:center; gap:8px;
       color: #c7d2fe;
@@ -152,6 +168,14 @@
       border: 1px solid var(--line);
       background: linear-gradient(180deg, rgba(15,23,42,.62), rgba(15,23,42,.38));
       min-height: 180px;
+    }
+    .service img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      margin-bottom: 12px;
     }
     .service h3 { margin: 0 0 8px; font-size: 22px; }
     .service p { margin: 0; color: var(--muted); }
@@ -237,6 +261,9 @@
           <a class="btn btn-primary" href="tel:+496131000000">Projekt starten</a>
           <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
         </div>
+        <div class="hero-visual">
+          <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1600&q=80" alt="Modernes Handwerks-Team bei einer Hausinstallation" loading="eager" />
+        </div>
       </div>
 
       <aside class="glass hero-card" aria-label="Highlights">
@@ -257,26 +284,32 @@
       <p class="section-sub">Moderne Handwerkslösungen mit Fokus auf Funktion, Langlebigkeit und saubere Ausführung.</p>
       <div class="services">
         <article class="service">
+          <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1200&q=80" alt="Heizungs- und Wärmepumpeninstallation" loading="lazy" />
           <h3>Heizung & Wärmepumpe</h3>
           <p>Installation und Modernisierung für effiziente, nachhaltige Wärmeversorgung in Wohn- und Gewerbeobjekten.</p>
         </article>
         <article class="service">
+          <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80" alt="Fliesenarbeiten im Badezimmer" loading="lazy" />
           <h3>Fliesen & Bäder</h3>
           <p>Präzise Fliesenarbeiten für Bäder, Küchen und Nutzflächen – hochwertig verarbeitet und optisch klar.</p>
         </article>
         <article class="service">
+          <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1200&q=80" alt="Hochwertige Bodenarbeiten" loading="lazy" />
           <h3>Boden & Beschichtung</h3>
           <p>Vom robusten Funktionsboden bis zur anspruchsvollen Oberfläche: fachgerecht verlegt und dauerhaft belastbar.</p>
         </article>
         <article class="service">
+          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80" alt="Elektroarbeiten in einem Gebäude" loading="lazy" />
           <h3>Elektroarbeiten</h3>
           <p>Elektroinstallationen und technische Lösungen für sichere, zuverlässige Gebäudeinfrastruktur.</p>
         </article>
         <article class="service">
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" alt="Professionelle Gebäudereinigung" loading="lazy" />
           <h3>Gebäude- & Büroreinigung</h3>
           <p>Regelmäßige oder projektbezogene Reinigungsleistungen für ein gepflegtes, repräsentatives Umfeld.</p>
         </article>
         <article class="service">
+          <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=1200&q=80" alt="Hausmeisterservice und Objektbetreuung" loading="lazy" />
           <h3>Hausmeisterservice</h3>
           <p>Technische Betreuung und laufende Objektpflege für reibungslose Abläufe im Alltag.</p>
         </article>
