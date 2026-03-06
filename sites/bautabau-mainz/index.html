@@ -3,97 +3,333 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bautabau Mainz – Rund ums Haus</title>
-  <meta name="description" content="Bautabau in Mainz: Heizung, Fliesen, Boden, Elektro, Reinigung und Hausmeisterservice – zuverlässig und aus einer Hand." />
+  <title>Bautabau Mainz – Premium Handwerksservice</title>
+  <meta name="description" content="Bautabau Mainz: Premium Lösungen für Heizung, Elektro, Fliesen, Boden und Gebäudeservice. Schnell. Präzise. Zuverlässig." />
+  <meta name="theme-color" content="#05070d" />
   <style>
-    :root { --bg:#0f172a; --card:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#22c55e; --accent2:#16a34a; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--text); background:#020617; }
-    .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
-    .hero { padding:64px 0 44px; background:linear-gradient(180deg,#0b1224 0%,#020617 100%); }
-    h1 { font-size:clamp(30px,5vw,52px); line-height:1.08; margin:0 0 14px; }
-    p { line-height:1.6; }
-    .muted { color:var(--muted); }
-    .cta { display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
-    .btn { display:inline-block; padding:12px 16px; border-radius:12px; text-decoration:none; font-weight:700; }
-    .btn-primary { background:var(--accent); color:#052e16; }
-    .btn-primary:hover { background:var(--accent2); color:#dcfce7; }
-    .btn-ghost { border:1px solid #334155; color:#e2e8f0; }
-    section { padding:34px 0; }
-    .grid { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
-    .card { background:var(--card); border:1px solid #1f2937; border-radius:14px; padding:16px; }
-    h2 { margin:0 0 12px; font-size:28px; }
-    h3 { margin:0 0 6px; font-size:18px; }
-    ul { margin:8px 0 0; padding-left:18px; }
-    .meta { display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
-    footer { border-top:1px solid #1e293b; color:#94a3b8; padding:22px 0 30px; font-size:14px; }
-    .pill { display:inline-block; padding:6px 10px; border:1px solid #334155; border-radius:999px; color:#cbd5e1; margin-right:8px; margin-top:8px; font-size:13px; }
+    :root {
+      --bg: #05070d;
+      --bg-soft: #0a1020;
+      --card: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.12);
+      --text: #f5f7ff;
+      --muted: #a7b1c7;
+      --accent: #6ee7b7;
+      --accent-2: #60a5fa;
+      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      --radius: 22px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 10% -10%, #1d3a8a55 0%, transparent 60%),
+        radial-gradient(1000px 600px at 100% 0%, #0ea5e955 0%, transparent 60%),
+        linear-gradient(180deg, #060915 0%, #05070d 50%, #04060b 100%);
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.05;
+      background-image: radial-gradient(#fff 0.4px, transparent 0.4px);
+      background-size: 4px 4px;
+      z-index: 0;
+    }
+
+    .container { width: min(var(--max), 92vw); margin: 0 auto; position: relative; z-index: 1; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(180deg, rgba(5,7,13,0.85), rgba(5,7,13,0.45));
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      min-height: 74px;
+    }
+
+    .brand { display:flex; align-items:center; gap: 12px; font-weight: 700; text-decoration:none; color:var(--text); }
+    .brand-badge {
+      width: 34px; height: 34px; border-radius: 10px;
+      background: linear-gradient(140deg, var(--accent), var(--accent-2));
+      box-shadow: 0 8px 24px rgba(110,231,183,0.38);
+    }
+
+    .nav a { color: var(--muted); text-decoration:none; font-weight: 500; }
+    .nav-links { display:flex; align-items:center; gap: 24px; }
+
+    .btn {
+      display: inline-flex; align-items:center; justify-content:center; gap:8px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: .25s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      color:#022c22;
+      background: linear-gradient(135deg, var(--accent), #93c5fd);
+      box-shadow: 0 10px 30px rgba(96,165,250,.35);
+    }
+    .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.03); }
+    .btn-ghost {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.28); }
+
+    .hero {
+      padding: 86px 0 56px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:8px;
+      color: #c7d2fe;
+      border:1px solid #334155;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(15,23,42,0.5);
+    }
+
+    h1 {
+      margin: 14px 0 16px;
+      font-size: clamp(34px, 7vw, 68px);
+      line-height: 1.03;
+      letter-spacing: -0.02em;
+    }
+
+    .lead { color: var(--muted); font-size: clamp(16px, 2vw, 20px); max-width: 64ch; }
+    .hero-actions { margin-top: 26px; display:flex; flex-wrap:wrap; gap: 12px; }
+
+    .glass {
+      border: 1px solid var(--line);
+      background: linear-gradient(155deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
+      border-radius: var(--radius);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card { padding: 22px; }
+    .kpis { display:grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 14px; }
+    .kpi { padding: 14px; border-radius: 14px; background: rgba(2,6,23,.45); border: 1px solid rgba(255,255,255,.08); }
+    .kpi strong { display:block; font-size: 22px; }
+    .kpi span { color: var(--muted); font-size: 14px; }
+
+    section { padding: 42px 0; }
+    .section-title { font-size: clamp(28px, 4.5vw, 46px); margin: 0 0 8px; letter-spacing: -0.02em; }
+    .section-sub { color: var(--muted); margin: 0 0 18px; }
+
+    .services {
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .service {
+      grid-column: span 4;
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,23,42,.62), rgba(15,23,42,.38));
+      min-height: 180px;
+    }
+    .service h3 { margin: 0 0 8px; font-size: 22px; }
+    .service p { margin: 0; color: var(--muted); }
+
+    .split {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .panel { padding: 24px; }
+
+    .list { margin: 0; padding-left: 18px; color: var(--muted); }
+    .list li { margin-bottom: 8px; }
+
+    .cta-band {
+      margin-top: 10px;
+      padding: 28px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(120% 140% at 100% 0%, rgba(96,165,250,.35) 0%, rgba(96,165,250,0) 60%),
+        radial-gradient(120% 140% at 0% 100%, rgba(110,231,183,.26) 0%, rgba(110,231,183,0) 60%),
+        rgba(15,23,42,.55);
+      box-shadow: var(--shadow);
+    }
+
+    .contact {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    footer {
+      padding: 36px 0 56px;
+      color: #8b97ae;
+      font-size: 14px;
+    }
+
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .service { grid-column: span 6; }
+      .split, .contact { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links a:not(.btn) { display: none; }
+      .service { grid-column: span 12; }
+      .kpis { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <div class="pill">Mainz & Umgebung</div>
-      <div class="pill">Vom Inhaber bestätigt</div>
-      <h1>Bautabau – Ihr Partner rund ums Haus in Mainz</h1>
-      <p class="muted">Heizungsinstallation, Fliesen, Bodenarbeiten, Elektro, Reinigung und Hausmeisterservice – alles aus einer Hand, sauber geplant und zuverlässig umgesetzt.</p>
-      <div class="cta">
+  <div class="noise"></div>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>Bautabau</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#vorteile">Vorteile</a>
+        <a href="#kontakt">Kontakt</a>
         <a class="btn btn-primary" href="tel:+496131000000">Jetzt anrufen</a>
-        <a class="btn btn-ghost" href="#kontakt">Kontakt anfragen</a>
-      </div>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <section>
-      <h2>Leistungen</h2>
-      <div class="grid">
-        <article class="card"><h3>Heizung & Wärmepumpe</h3><p class="muted">Installation und Modernisierung für effizientes Heizen.</p></article>
-        <article class="card"><h3>Fliesen & Boden</h3><p class="muted">Fliesenarbeiten, Bodenlegearbeiten und Beschichtungen.</p></article>
-        <article class="card"><h3>Elektroarbeiten</h3><p class="muted">Elektroinstallationen und technische Hauslösungen.</p></article>
-        <article class="card"><h3>Reinigung & Hausservice</h3><p class="muted">Gebäude- und Büroreinigung sowie Hausmeisterservice.</p></article>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Mainz & Umgebung · Premium Handwerksservice</span>
+        <h1>Ein Team. <br>Alles rund ums Haus. <br>Auf höchstem Niveau.</h1>
+        <p class="lead">Bautabau verbindet Heizungsinstallation, Fliesen- und Bodenarbeiten, Elektroservice sowie Gebäudemanagement in einem klaren, professionellen Ablauf – für private und gewerbliche Projekte.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+496131000000">Projekt starten</a>
+          <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
+        </div>
+      </div>
+
+      <aside class="glass hero-card" aria-label="Highlights">
+        <h3 style="margin:0 0 8px; font-size:24px;">Warum Kund:innen Bautabau wählen</h3>
+        <p class="meta" style="margin:0;">Qualität, Verlässlichkeit und präzise Umsetzung – vom ersten Gespräch bis zur fertigen Ausführung.</p>
+
+        <div class="kpis">
+          <div class="kpi"><strong>Mainz</strong><span>+ Umkreis</span></div>
+          <div class="kpi"><strong>Aus einer Hand</strong><span>Mehrere Gewerke, ein Ablauf</span></div>
+          <div class="kpi"><strong>Saubere Umsetzung</strong><span>Strukturiert & termintreu</span></div>
+          <div class="kpi"><strong>Für Privat & Gewerbe</strong><span>Flexible Projektgrößen</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="leistungen">
+      <h2 class="section-title">Leistungen</h2>
+      <p class="section-sub">Moderne Handwerkslösungen mit Fokus auf Funktion, Langlebigkeit und saubere Ausführung.</p>
+      <div class="services">
+        <article class="service">
+          <h3>Heizung & Wärmepumpe</h3>
+          <p>Installation und Modernisierung für effiziente, nachhaltige Wärmeversorgung in Wohn- und Gewerbeobjekten.</p>
+        </article>
+        <article class="service">
+          <h3>Fliesen & Bäder</h3>
+          <p>Präzise Fliesenarbeiten für Bäder, Küchen und Nutzflächen – hochwertig verarbeitet und optisch klar.</p>
+        </article>
+        <article class="service">
+          <h3>Boden & Beschichtung</h3>
+          <p>Vom robusten Funktionsboden bis zur anspruchsvollen Oberfläche: fachgerecht verlegt und dauerhaft belastbar.</p>
+        </article>
+        <article class="service">
+          <h3>Elektroarbeiten</h3>
+          <p>Elektroinstallationen und technische Lösungen für sichere, zuverlässige Gebäudeinfrastruktur.</p>
+        </article>
+        <article class="service">
+          <h3>Gebäude- & Büroreinigung</h3>
+          <p>Regelmäßige oder projektbezogene Reinigungsleistungen für ein gepflegtes, repräsentatives Umfeld.</p>
+        </article>
+        <article class="service">
+          <h3>Hausmeisterservice</h3>
+          <p>Technische Betreuung und laufende Objektpflege für reibungslose Abläufe im Alltag.</p>
+        </article>
       </div>
     </section>
 
-    <section>
-      <h2>Warum Bautabau?</h2>
-      <div class="card">
-        <ul>
-          <li>Breites Leistungsspektrum für private und gewerbliche Objekte</li>
-          <li>Koordinierte Umsetzung durch ein zentrales Team</li>
-          <li>Fokus auf Qualität, Verlässlichkeit und klare Kommunikation</li>
-          <li>Einsatz moderner Verfahren und Materialien</li>
+    <section id="vorteile" class="split">
+      <div class="glass panel">
+        <h2 style="margin-top:0;">Was Bautabau besonders macht</h2>
+        <ul class="list">
+          <li>Gewerkeübergreifende Planung ohne Reibungsverluste</li>
+          <li>Hoher Qualitätsanspruch bei Material und Ausführung</li>
+          <li>Transparente Kommunikation und klare Zuständigkeiten</li>
+          <li>Verlässliche, praxisnahe Lösungen statt Standardfloskeln</li>
         </ul>
       </div>
+
+      <div class="glass panel">
+        <h2 style="margin-top:0;">Ablauf in 3 Schritten</h2>
+        <ol class="list" style="padding-left:20px;">
+          <li><strong>Analyse:</strong> Ziel, Budget und Zeitrahmen abstimmen</li>
+          <li><strong>Umsetzung:</strong> Koordinierte Durchführung der Gewerke</li>
+          <li><strong>Abschluss:</strong> Abnahme, Feinschliff und Übergabe</li>
+        </ol>
+      </div>
     </section>
 
     <section>
-      <h2>Einsatzgebiet</h2>
-      <div class="card">
-        <p><strong>Mainz</strong> und Umgebung (laut Verzeichniseintrag bis ca. <strong>20 km</strong>).</p>
+      <div class="cta-band">
+        <h2 style="margin:0 0 8px; font-size: clamp(26px,4vw,42px); letter-spacing:-0.02em;">Bereit für ein sauberes, professionelles Ergebnis?</h2>
+        <p class="meta" style="margin:0 0 16px; max-width:70ch;">Ob einzelne Maßnahme oder umfangreiches Projekt – Bautabau unterstützt dich mit einem klaren Ablauf und hoher Ausführungsqualität.</p>
+        <a class="btn btn-primary" href="tel:+496131000000">Kostenloses Erstgespräch</a>
       </div>
     </section>
 
-    <section id="kontakt">
-      <h2>Kontakt</h2>
-      <div class="meta">
-        <div class="card">
-          <h3>Adresse</h3>
-          <p class="muted">Sömmerringplatz 1 a<br>55118 Mainz</p>
-        </div>
-        <div class="card">
-          <h3>Anfrage</h3>
-          <p class="muted">Telefon und E-Mail bitte ergänzen (aus Firmendaten).</p>
-          <a class="btn btn-primary" href="tel:+496131000000">Anrufen</a>
-        </div>
-      </div>
+    <section id="kontakt" class="contact">
+      <article class="glass panel">
+        <h3 style="margin-top:0; font-size:24px;">Kontakt</h3>
+        <p class="meta">Sömmerringplatz 1 a<br>55118 Mainz</p>
+        <p class="meta">Telefon: <a href="tel:+496131000000" style="color:#dbeafe;">+49 6131 000000</a><br>
+          E-Mail: <a href="mailto:kontakt@bautabau-mainz.de" style="color:#dbeafe;">kontakt@bautabau-mainz.de</a></p>
+        <a class="btn btn-primary" href="tel:+496131000000">Jetzt anrufen</a>
+      </article>
+
+      <article class="glass panel">
+        <h3 style="margin-top:0; font-size:24px;">Hinweis</h3>
+        <p class="meta">Dies ist eine hochwertige Demo-Seite zur Vertriebs-/Akquise-Darstellung. Kontaktdaten und rechtliche Angaben (Impressum/Datenschutz) vor Livegang final ergänzen.</p>
+      </article>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">
-      Demo-Website für Akquise · Inhalt aus öffentlichen Unternehmensangaben paraphrasiert · Stand: 2026-03-06
-    </div>
+    <div class="container">© Bautabau Mainz · Demo Design (Premium Onepager)</div>
   </footer>
 </body>
 </html>
